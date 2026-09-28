@@ -43,6 +43,8 @@ public class StorageUtil {
         LinkedList<String> segments = new LinkedList<String>();
         String includePath = include.getRemote();
         include = new FilePath(include.getChannel(), includePath.replace("\\", "/"));
+        String workspacePath = workspace.getRemote();
+        workspace = new FilePath(workspace.getChannel(), workspacePath.replace("\\", "/"));
         while (!include.equals(workspace)) {
             segments.push(include.getName());
             include = include.getParent();
